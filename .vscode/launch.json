@@ -1,0 +1,42 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "SmartStudentPlatform",
+      "request": "launch",
+      "mainClass": "com.capstone.SmartStudentPlatform",
+      "projectName": "demo_889037d3"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "com.capstone.App",
+      "projectName": "demo_889037d3"
+    },
+    {
+      "type": "java",
+      "name": "SmartStudentPlatform",
+      "request": "launch",
+      "mainClass": "SmartStudentPlatform",
+      "projectName": "demo_889037d3"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "demo_889037d3"
+    }
+  ]
+}
