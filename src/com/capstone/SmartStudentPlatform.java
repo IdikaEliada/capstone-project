@@ -772,7 +772,7 @@ public class SmartStudentPlatform extends JFrame implements ActionListener {
     }
     
     // Main method to run the application
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // Set Look and Feel to system default
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -784,6 +784,6 @@ public class SmartStudentPlatform extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(() -> {
             new SmartStudentPlatform();
         });
-    }
+    }*/
 }
 
