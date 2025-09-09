@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CalculatorApp",
+      "request": "launch",
+      "mainClass": "com.calculator.CalculatorApp",
+      "projectName": "capstone-project_e0449650"
+    },
+    {
+      "type": "java",
       "name": "SmartStudentPlatform",
       "request": "launch",
       "mainClass": "com.capstone.SmartStudentPlatform",
