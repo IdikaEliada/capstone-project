@@ -95,8 +95,6 @@ class ModernTableCellRenderer extends DefaultTableCellRenderer {
     }
 }
 
-
-
 public class EnhancedSmartStudentPlatform extends JFrame {
     private StudentDataManager dataManager;
     private JTable studentTable;
@@ -107,8 +105,8 @@ public class EnhancedSmartStudentPlatform extends JFrame {
     private JLabel totalStudentsLabel, avgCgpaLabel, topPerformerLabel;
     
     // Colors
-    private final Color PRIMARY_COLOR = new Color(52, 152, 219);
-    private final Color SECONDARY_COLOR = new Color(46, 204, 113);
+    private final Color PRIMARY_COLOR = new Color(161, 98, 7); 
+    private final Color SECONDARY_COLOR = new Color(202, 138, 4);
     private final Color DANGER_COLOR = new Color(231, 76, 60);
     private final Color WARNING_COLOR = new Color(241, 196, 15);
     private final Color BACKGROUND_COLOR = new Color(236, 240, 241);
@@ -122,7 +120,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
     }
     
     private void initializeModernGUI() {
-        setTitle("Smart Student Platform - Modern Edition");
+        setTitle("Cruciqe Smart Student Platform");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(BACKGROUND_COLOR);
@@ -151,13 +149,13 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         headerPanel.setPreferredSize(new Dimension(0, 80));
         
         // Title
-        JLabel titleLabel = new JLabel("Smart Student Platform", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("Cruciqe Smart Student Platform", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
         
         // Subtitle
-        JLabel subtitleLabel = new JLabel("Comprehensive Student Management System", SwingConstants.CENTER);
+        JLabel subtitleLabel = new JLabel("Comprehensive Student Management System built by group 11 CYB", SwingConstants.CENTER);
         subtitleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         subtitleLabel.setForeground(new Color(255, 255, 255, 180));
         
@@ -176,7 +174,14 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         
         // Create table with modern styling
-        String[] columnNames = {"Student ID", "Name", "Level", "Department", "CGPA", "Status"};
+        String[] columnNames = {
+            "Student Reg",
+            "Name",
+            "Level",
+            "Department",
+            "CGPA",
+            "Status"
+        };
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -187,23 +192,27 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         studentTable = new JTable(tableModel);
         setupModernTable();
         
-        // Table container with shadow effect
-        JPanel tableContainer = createCardPanel();
-        tableContainer.setLayout(new BorderLayout());
-        
-        JLabel tableTitle = new JLabel("Student Records");
-        tableTitle.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        tableTitle.setBorder(BorderFactory.createEmptyBorder(15, 20, 10, 20));
-        
-        JScrollPane scrollPane = new JScrollPane(studentTable);
-        scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        scrollPane.getViewport().setBackground(Color.WHITE);
-        
-        tableContainer.add(tableTitle, BorderLayout.NORTH);
-        tableContainer.add(scrollPane, BorderLayout.CENTER);
-        
-        mainPanel.add(tableContainer, BorderLayout.CENTER);
-        add(mainPanel, BorderLayout.CENTER);
+    // Set table header text color to black
+    JTableHeader header = studentTable.getTableHeader();
+    header.setForeground(Color.BLACK);
+
+    // Table container with shadow effect
+    JPanel tableContainer = createCardPanel();
+    tableContainer.setLayout(new BorderLayout());
+
+    JLabel tableTitle = new JLabel("Student Records");
+    tableTitle.setFont(new Font("Segoe UI", Font.BOLD, 16));
+    tableTitle.setBorder(BorderFactory.createEmptyBorder(15, 20, 10, 20));
+
+    JScrollPane scrollPane = new JScrollPane(studentTable);
+    scrollPane.setBorder(BorderFactory.createEmptyBorder());
+    scrollPane.getViewport().setBackground(Color.WHITE);
+
+    tableContainer.add(tableTitle, BorderLayout.NORTH);
+    tableContainer.add(scrollPane, BorderLayout.CENTER);
+
+    mainPanel.add(tableContainer, BorderLayout.CENTER);
+    add(mainPanel, BorderLayout.CENTER);
     }
     
     private void setupModernTable() {
@@ -290,6 +299,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         
         // Add Result Button
         ModernButton addResultBtn = new ModernButton("Add Result");
+        addResultBtn.setButtonColor(Color.BLACK, Color.DARK_GRAY);
         addResultBtn.addActionListener(e -> showAddResultDialog());
         gbc.gridy++;
         controlPanel.add(addResultBtn, gbc);
@@ -312,23 +322,25 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         controlPanel.add(searchField, gbc);
         
         // Search Button
-        ModernButton searchBtn = new ModernButton("Search by ID");
-        searchBtn.addActionListener(e -> performSearch());
-        gbc.gridy++;
-        controlPanel.add(searchBtn, gbc);
+    ModernButton searchBtn = new ModernButton("Search by Reg Number");
+    searchBtn.setButtonColor(Color.BLACK, Color.DARK_GRAY);
+    searchBtn.addActionListener(e -> performSearch());
+    gbc.gridy++;
+    controlPanel.add(searchBtn, gbc);
         
         // Sort Combo
-        String[] sortOptions = {"Name", "CGPA", "ID"};
+        String[] sortOptions = {"Name", "CGPA", "Reg"};
         sortComboBox = new JComboBox<>(sortOptions);
         sortComboBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         gbc.gridy++; gbc.insets = new Insets(10, 20, 5, 20);
         controlPanel.add(sortComboBox, gbc);
         
         // Sort Button
-        ModernButton sortBtn = new ModernButton("Sort Students");
-        sortBtn.addActionListener(e -> performSort());
-        gbc.gridy++; gbc.insets = new Insets(5, 20, 5, 20);
-        controlPanel.add(sortBtn, gbc);
+    ModernButton sortBtn = new ModernButton("Sort Students");
+    sortBtn.setButtonColor(Color.BLACK, Color.DARK_GRAY);
+    sortBtn.addActionListener(e -> performSort());
+    gbc.gridy++; gbc.insets = new Insets(5, 20, 5, 20);
+    controlPanel.add(sortBtn, gbc);
         
         // Refresh Button
         ModernButton refreshBtn = new ModernButton("Refresh Data");
@@ -466,7 +478,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         
-        addFormField(formPanel, gbc, "Student ID:", idField, 0);
+        addFormField(formPanel, gbc, "Student Reg:", idField, 0);
         addFormField(formPanel, gbc, "Name:", nameField, 1);
         addFormField(formPanel, gbc, "Level:", levelField, 2);
         addFormField(formPanel, gbc, "Department:", departmentField, 3);
@@ -582,7 +594,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         
-        addFormField(formPanel, gbc, "Student ID:", idField, 0);
+        addFormField(formPanel, gbc, "Student Reg:", idField, 0);
         addFormField(formPanel, gbc, "Name:", nameField, 1);
         addFormField(formPanel, gbc, "Level:", levelField, 2);
         addFormField(formPanel, gbc, "Department:", departmentField, 3);
@@ -763,7 +775,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
     private void performSearch() {
         String searchId = searchField.getText().trim();
         if (searchId.isEmpty()) {
-            showWarningMessage("Please enter a student ID to search for.");
+            showWarningMessage("Please enter a student reg number to search for.");
             return;
         }
         
@@ -780,7 +792,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
             
             showSuccessMessage("Student found: " + student.getDisplayInfo());
         } else {
-            showErrorMessage("Student with ID '" + searchId + "' not found.");
+            showErrorMessage("Student with reg number '" + searchId + "' not found.");
         }
     }
     
@@ -800,7 +812,7 @@ public class EnhancedSmartStudentPlatform extends JFrame {
             case "CGPA":
                 students.sort((s1, s2) -> Double.compare(s2.getCgpa(), s1.getCgpa()));
                 break;
-            case "ID":
+            case "Reg":
                 students.sort((s1, s2) -> s1.getId().compareToIgnoreCase(s2.getId()));
                 break;
         }

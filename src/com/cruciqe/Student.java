@@ -34,11 +34,11 @@ public class Student extends Person implements Sortable, Serializable {
   private double cgpa;
   
   public Student(String name, String id, String level, String department) {
-      super(name, id);
-      this.level = level;
-      this.department = department;
-      this.results = new ArrayList<>();
-      this.cgpa = 0.0;
+    super(name, id);
+    this.level = level;
+    this.department = department;
+    this.results = new ArrayList<>();
+    this.cgpa = 0.0;
   }
   
   public void addResult(Course course, double grade) {
