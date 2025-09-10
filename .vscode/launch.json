@@ -8,6 +8,13 @@
       "type": "java",
       "name": "App",
       "request": "launch",
+      "mainClass": "com.clairify.App",
+      "projectName": "capstone-project_e0449650"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
       "mainClass": "com.cruciqe.App",
       "projectName": "capstone-project_e0449650"
     },
